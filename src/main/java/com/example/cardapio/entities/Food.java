@@ -5,22 +5,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
 
-@Entity
+@Entity(name = "foods")
 @Table(name = "tb_foods")
+@EqualsAndHashCode
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Long price;
+    private Double price;
     private String image;
 
     public Food() {
 
     }
 
-    public Food(Long id, String name, Long price, String image) {
+    public Food(Long id, String name, Double price, String image) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -43,11 +45,11 @@ public class Food {
         this.name = name;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -57,6 +59,12 @@ public class Food {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Food(FoodRequestDTO data) {
+        this.image = data.image();
+        this.price = data.price();
+        this.name = data.name();
     }
 
 }
