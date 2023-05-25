@@ -15,8 +15,6 @@ import com.example.cardapio.entities.Food;
 import com.example.cardapio.entities.FoodDTO;
 import com.example.cardapio.entities.FoodRequestDTO;
 
-import jakarta.persistence.SqlResultSetMapping;
-
 @RestController
 @RequestMapping("food")
 public class FoodController {
