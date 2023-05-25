@@ -1,5 +1,6 @@
 import axios, { Axios, AxiosPromise } from "axios"
 import { FoodData } from "../interface/FoodData"
+import { useQuery } from "react-query"
 
 const API_URL = 'https://localhost:8080'
 const fetchData = async(): AxiosPromise<FoodData> =>{
