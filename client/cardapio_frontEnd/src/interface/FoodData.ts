@@ -1,5 +1,5 @@
 export interface FoodData{
-    id:number,
+    id?:number,
     name:string,
     image:string,
     price:number
